@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require('mongoose');
 require("dotenv").config();
 
-// const UploadRoute = require("./routes/UploadRoute");
+const UploadRoute = require("./routes/UploadRoute");
 
 const app = express();
 app.use(cors());
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
     console.error("Error connecting to MongoDB:", err);
   });
 
-// app.use(UploadRoute);
+app.use(UploadRoute);
 
 app.get("/",(req,res)=>{
     res.send("Welcome to Backend");
