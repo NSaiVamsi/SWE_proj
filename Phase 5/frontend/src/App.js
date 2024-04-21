@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
-import UploadButton from "./components/UploadButton";
-import Grid from "./components/Grid";
-import axios from "axios";
-import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
@@ -44,6 +40,9 @@ import Uploads from './components/Home/MarketPlace/Uploads';
 // }
 
 class App extends Component {
+
+  // const [updateUI,setUpdateUI] = useState("");
+
   render() {
     return (
       // <div className="App">

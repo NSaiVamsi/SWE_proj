@@ -1,7 +1,7 @@
 import React,{ useState,useEffect } from "react";
 import { useNavigate } from "react-router";
 import Cookies from "js-cookie";
-
+import UploadButton from "../UploadButton";
 const Navbar = () =>{
 
     const navigate = useNavigate();
@@ -30,8 +30,8 @@ const Navbar = () =>{
     //   }, [ecookie]);
 
     // const hrefLink = "/" + role + "/" + parseInt(ecookie);
-    const hrefLink1 = "/home/photon" ;
-    const hrefLink2 = "/home/marketplace" ;
+    const hrefHomePhoton = "/home/photon" ;
+    const hrefHomeMarketplace = "/home/marketplace" ;
 
     const handleclick = (e) =>{
         e.preventDefault();
@@ -44,9 +44,12 @@ const Navbar = () =>{
     return(
         <nav className="nav-wrapper red darken-3">
             <div className="container">
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href={hrefLink1} >PHOTO N</a></li>
-                    <li><a href={hrefLink2} >Market Place</a></li>
+                <ul id="nav-mobile" className="left hide-on-med-and-down">
+                    <li><a href={hrefHomePhoton} >PHOTO N</a></li>
+                    <li><a href={hrefHomeMarketplace} >Market Place</a></li>
+                </ul>
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <UploadButton />
                 </ul>
                 <ul className="right">
                     <button onClick={handleclick} >Logout</button>

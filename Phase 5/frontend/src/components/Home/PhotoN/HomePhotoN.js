@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react";
+import Grid from "../../Grid.js";
+import axios from "axios";
+
 const HomePhotoN = () => {
+
+    const [photos,setPhotos] = useState([])
+
+    useEffect(() => {
+        axios
+          .get("http://localhost:5000/api/get")
+          .then((res) => {
+            console.log(res.data);
+            setPhotos(res.data);
+          })
+          .catch((err) => console.log(err));
+      }, []);
 
     return(
         <div className="center">
@@ -31,7 +47,7 @@ const HomePhotoN = () => {
             </ul>
             </div>
             <div className="main-content">
-                <p>Welcome to Local Home of Photo N and All Photos</p>
+            <Grid photos={photos} />
             </div>
             
         </div>

@@ -10,7 +10,7 @@ const ProtectedRoute = () =>{
     if(ecookie){
         return(
             <>
-                <Navbar/>
+                <Navbar />
                 <Outlet />
             </>
         )

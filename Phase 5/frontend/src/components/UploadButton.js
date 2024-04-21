@@ -1,14 +1,18 @@
 import React from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Button = ({ setUpdateUI }) => {
   const handleChange = (e) => {
     e.preventDefault();
 
+    const ecookie = Cookies.get('id'); //ownerId
     const formData = new FormData();    
+
     formData.append("photo", e.target.files[0]);
-    console.log(formData)
+    formData.append('ownerUserId', ecookie);
+    console.log(e.target.files[0])
 
     axios
       .post("http://localhost:5000/api/save", formData)
@@ -21,7 +25,7 @@ const Button = ({ setUpdateUI }) => {
 
   return (
     <label className="button" htmlFor="file_picker">
-      <AiFillPlusCircle />
+      Upload Image
       <input
         hidden
         type="file"
