@@ -1,0 +1,41 @@
+const HomePhotoN = () => {
+
+    return(
+        <div className="center">
+
+            {/* <Menu
+            onClick={(key)=>{
+                navigate(key)
+            }}
+            items={[
+                {label:"All Photos", key: "/home/photon/all"},
+                {label:"Shared", key: "/home/photon/share"},
+                {label:"Saved", key: "/home/photon/save"},
+                {label:"Favs", key: "/home/photon/fav"},
+                {label:"Albums", key: "/home/photon/album"},
+                {label:"Locked", key: "/home/photon/lock"},
+                {label:"Bin", key: "/home/photon/bin"},
+            ]}
+            >
+            </Menu> */}
+
+            <div className="sidebar">
+            <ul>
+                <li><a href="/home/photon">All Photos</a></li>
+                <li><a href="/home/photon/share">Shared</a></li>
+                <li><a href="/home/photon/save">Saved</a></li>
+                <li><a href="/home/photon/fav">Favs</a></li>
+                <li><a href="/home/photon/album">Albums</a></li>
+                <li><a href="/home/photon/lock">Locked</a></li>
+                <li><a href="/home/photon/bin">Bin</a></li>
+            </ul>
+            </div>
+            <div className="main-content">
+                <p>Welcome to Local Home of Photo N and All Photos</p>
+            </div>
+            
+        </div>
+    )
+}
+
+export default HomePhotoN;
