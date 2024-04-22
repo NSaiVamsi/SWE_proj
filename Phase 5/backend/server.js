@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const UploadRoute = require("./routes/UploadRoute");
 const ViewBinRoute = require("./routes/ViewBinRoute");
+const photoRoute = require("./routes/photoRoute");
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -23,6 +25,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(UploadRoute);
 app.use(ViewBinRoute);
+app.use(photoRoute);
 
 app.get("/",(req,res)=>{
     res.send("Welcome to Backend");

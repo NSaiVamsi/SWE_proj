@@ -15,6 +15,7 @@ import HomeMarketPlace from './components/Home/MarketPlace/HomeMarketPlace';
 import FollowFeed from './components/Home/MarketPlace/FollowFeed';
 import PublicFeed from './components/Home/MarketPlace/PublicFeed';
 import Uploads from './components/Home/MarketPlace/Uploads';
+import PhotoDetails from './components/Home/PhotoN/PhotoView';
 
 // function App() {
 //   const [photos, setPhotos] = useState([]);
@@ -54,11 +55,15 @@ class App extends Component {
           <Route index element={<Navigate to='/login' />} />
           <Route path='/login' element={<Login />} />
 
+          {/* Add a route for photo details */}
+
           <Route element={<ProtectedRoute />}>
+
           <Route path="/home/photon/*" element={
                     <>
                     <Routes>
                         <Route path="/" element={<HomePhotoN />} />
+                        <Route path="/photo-details/:id" element={<PhotoDetails />} />
                         <Route path="/share" element={<Share />} />
                         <Route path="/save" element={<Save />} />
                         <Route path="/fav" element={<Fav />} />

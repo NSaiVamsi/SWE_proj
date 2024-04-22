@@ -26,7 +26,7 @@ const Bin = () => {
     return(
         <div className="center">
 
-        <Grid photos={photos} />
+        <Grid photos={photos} flag={1} />
             
         </div>
     )

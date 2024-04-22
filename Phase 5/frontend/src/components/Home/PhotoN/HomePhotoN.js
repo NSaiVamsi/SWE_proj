@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
 import axios from "axios";
 import React from 'react';
+import PhotoDetails from './PhotoView.js' ;
 
 const HomePhotoN = () => {
 
@@ -55,7 +56,7 @@ const HomePhotoN = () => {
             </ul>
             </div>
             <div className="main-content">
-            <Grid photos={photos} />
+            <Grid photos={photos} flag={0} />
             </div>
             
         </div>
