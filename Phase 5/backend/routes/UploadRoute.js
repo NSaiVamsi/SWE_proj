@@ -10,7 +10,7 @@ const router = Router();
 
 router.get("/api/get", async (req, res) => {
   try {
-    const allPhotos = await UploadModel.find().sort({ createdAt: "descending" });
+    const allPhotos = await UploadModel.find({ binFlag: 0 }).sort({ createdAt: "descending" });
 
     // Convert documents to a format that is more convenient for the frontend
     const photosData = allPhotos.map(photo => ({
