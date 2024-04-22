@@ -61,7 +61,7 @@ const uploadSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { collection: "ImageDetails" }
 );
 
 module.exports = mongoose.model("Upload", uploadSchema);

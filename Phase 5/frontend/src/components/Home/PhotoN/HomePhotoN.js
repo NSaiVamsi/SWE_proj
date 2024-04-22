@@ -12,7 +12,14 @@ const HomePhotoN = () => {
           .get("http://localhost:5001/api/get")
           .then((res) => {
             console.log(res.data);
-            setPhotos(res.data);
+            // Process the data if necessary, e.g., convert it to URLs or keep as base64
+            const processedPhotos = res.data.map(photo => ({
+              ...photo,
+              // If needed, you can convert the base64 to a URL like this:
+              // url: `data:image/jpeg;base64,${photo.data}`
+            }));
+            setPhotos(processedPhotos);
+            console.log(photos[0])
           })
           .catch((err) => console.log(err));
       }, []);
