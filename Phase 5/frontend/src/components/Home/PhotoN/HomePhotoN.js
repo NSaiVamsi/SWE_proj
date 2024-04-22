@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
 import axios from "axios";
+import React from 'react';
 
 const HomePhotoN = () => {
 
