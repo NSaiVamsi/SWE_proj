@@ -22,7 +22,7 @@ import Uploads from './components/Home/MarketPlace/Uploads';
 
 //   useEffect(() => {
 //     axios
-//       .get("http://localhost:5000/api/get")
+//       .get("http://localhost:5001/api/get")
 //       .then((res) => {
 //         console.log(res.data);
 //         setPhotos(res.data);
