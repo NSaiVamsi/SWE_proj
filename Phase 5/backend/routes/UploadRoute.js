@@ -10,7 +10,7 @@ const router = Router();
 
 router.get("/api/get", async (req, res) => {
   try {
-    const allPhotos = await UploadModel.find({ binFlag: 0 }).sort({ createdAt: "descending" });
+    const allPhotos = await UploadModel.find({ binFlag: 0, hiddenFolderFlag: 0 }).sort({ createdAt: "descending" });
 
     // Convert documents to a format that is more convenient for the frontend
     const photosData = allPhotos.map(photo => ({
@@ -21,7 +21,11 @@ router.get("/api/get", async (req, res) => {
       gpsData: photo.gpsData,
       type: photo.type,
       // You might want to rename 'data' to something more descriptive
-      data: photo.photo, // Assuming 'photo.photo' contains the base64 string
+      data: photo.photo,
+      binFlag: photo.binFlag,
+      hiddenFolderFlag: photo.hiddenFolderFlag,
+      favoritesFlag: photo.favoritesFlag
+       // Assuming 'photo.photo' contains the base64 string
     }));
 
     res.send(photosData);

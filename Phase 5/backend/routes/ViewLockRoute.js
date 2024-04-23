@@ -19,6 +19,8 @@ router.get("/api/get/lock", async (req, res) => {
         data: photo.photo, // Assuming 'photo.photo' contains the base64 string
         // Include the binFlag attribute in the response if you want to use it on the frontend
         binFlag: photo.binFlag,
+        hiddenFolderFlag: photo.hiddenFolderFlag,
+        favoritesFlag: photo.favoritesFlag
       }));
   
       res.send(photosData);

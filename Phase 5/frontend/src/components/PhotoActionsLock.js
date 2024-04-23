@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const PhotoActionsContainer = ({photo}) => {
+const PhotoActionsFavContainer = ({photo}) => {
 
   const [isFavorite, setIsFavorite] = useState(photo[0].favoritesFlag);
   const [isBin, setIsBin] = useState(photo[0].binFlag);
@@ -90,20 +90,6 @@ const PhotoActionsContainer = ({photo}) => {
 
   };
 
-  const handleMakeGlobal = () => {
-    // Logic for making the photo global
-    console.log('Making photo global');
-  };
-
-  const handleEditTags = () => {
-    // Logic for editing photo tags
-    console.log('Editing photo tags');
-  };
-
-  const handleDownload = () => {
-    // Logic for downloading the photo
-    console.log('Downloading photo');
-  };
 
   return (
     <div className="photo-actions-container">
@@ -121,12 +107,9 @@ const PhotoActionsContainer = ({photo}) => {
         </button>
         <button onClick={handleMakeHidden}>Make Hidden</button>
         <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleMakeGlobal}>Make Global</button>
-        <button onClick={handleEditTags}>Edit Tags</button>
-        <button onClick={handleDownload}>Download</button>
       </div>
     </div>
   );
 };
 
-export default PhotoActionsContainer;
+export default PhotoActionsFavContainer;

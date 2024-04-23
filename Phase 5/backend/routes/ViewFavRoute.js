@@ -6,7 +6,7 @@ const router = Router();
 router.get("/api/get/fav", async (req, res) => {
     try {
       // Modify the find query to filter for photos where binFlag is set to 1
-      const binPhotos = await UploadModel.find({ favoritesFlag: 1 }).sort({ createdAt: "descending" });
+      const binPhotos = await UploadModel.find({ favoritesFlag: 1, binFlag: 0, hiddenFolderFlag: 0 }).sort({ createdAt: "descending" });
   
       // Convert documents to a format that is more convenient for the frontend
       const photosData = binPhotos.map(photo => ({
@@ -19,6 +19,8 @@ router.get("/api/get/fav", async (req, res) => {
         data: photo.photo, // Assuming 'photo.photo' contains the base64 string
         // Include the binFlag attribute in the response if you want to use it on the frontend
         binFlag: photo.binFlag,
+        hiddenFolderFlag: photo.hiddenFolderFlag,
+        favoritesFlag: photo.favoritesFlag
       }));
   
       res.send(photosData);

@@ -15,16 +15,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import PhotoActionsContainer from '../../PhotoActions';
+import PhotoActionsLockContainer from '../../PhotoActionsLock';
 
-const PhotoDetails = () => {
+const PhotoDetailsLock = () => {
     const { id } = useParams();
     const [photo, setPhoto] = useState(null);
     // console.log(id)
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5001/api/photo-details/${id}`)
+            .get(`http://localhost:5001/api/lock/photo-details/${id}`)
             .then((res) => {
                 // console.log(res.data);
 
@@ -38,6 +38,8 @@ const PhotoDetails = () => {
             .catch(err => console.error(err));
     }, [id,photo]);
 
+    // console.log(photo)
+
     if (!photo) {
         return <div>Loading...</div>;
     } else if (!photo[0]) {
@@ -50,7 +52,7 @@ const PhotoDetails = () => {
                 <p>Size: {photo[0].size}</p>
                 <p>Type: {photo[0].type}</p>
                 Add other photo details as needed */}
-                <PhotoActionsContainer photo={photo}  />
+                <PhotoActionsLockContainer photo={photo}  />
             </div>
         );
 
@@ -59,4 +61,4 @@ const PhotoDetails = () => {
     // console.log(photo)
 };
 
-export default PhotoDetails;
+export default PhotoDetailsLock;

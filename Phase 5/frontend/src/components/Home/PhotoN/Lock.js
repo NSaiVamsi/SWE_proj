@@ -61,7 +61,7 @@ const Lock = () => {
         </form>
         </div>
       ) : (
-        <Grid photos={photos} flag={1} />
+        <Grid photos={photos} flag={2} />
       )}
     </div>
   );

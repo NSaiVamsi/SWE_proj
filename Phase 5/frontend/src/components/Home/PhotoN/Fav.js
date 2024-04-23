@@ -26,7 +26,7 @@ const Fav= () => {
     return(
         <div className="center">
 
-        <Grid photos={photos} flag={1} />
+        <Grid photos={photos} flag={0} />
             
         </div>
     )

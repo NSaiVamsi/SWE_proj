@@ -17,8 +17,10 @@ router.get("/api/get/bin", async (req, res) => {
         gpsData: photo.gpsData,
         type: photo.type,
         data: photo.photo, // Assuming 'photo.photo' contains the base64 string
-        // Include the binFlag attribute in the response if you want to use it on the frontend
+        // Include the binFlag attribute in the response if you want to use it on the frontend  
         binFlag: photo.binFlag,
+        hiddenFolderFlag: photo.hiddenFolderFlag,
+        favoritesFlag: photo.favoritesFlag
       }));
   
       res.send(photosData);

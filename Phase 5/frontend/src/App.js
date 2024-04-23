@@ -16,6 +16,8 @@ import FollowFeed from './components/Home/MarketPlace/FollowFeed';
 import PublicFeed from './components/Home/MarketPlace/PublicFeed';
 import Uploads from './components/Home/MarketPlace/Uploads';
 import PhotoDetails from './components/Home/PhotoN/PhotoView';
+import PhotoDetailsBin from './components/Home/PhotoN/PhotoViewBin';
+import PhotoDetailsLock from './components/Home/PhotoN/PhotoViewLock';
 
 // function App() {
 //   const [photos, setPhotos] = useState([]);
@@ -69,7 +71,9 @@ class App extends Component {
                         <Route path="/fav" element={<Fav />} />
                         <Route path="/album" element={<Album />} />
                         <Route path="/lock" element={<Lock />} />
+                        <Route path="/lock/photo-details/:id" element={<PhotoDetailsLock />} />
                         <Route path="/bin" element={<Bin />} />
+                        <Route path="/bin/photo-details/:id" element={<PhotoDetailsBin />} />
                     </Routes>
                     </>
                 } />
