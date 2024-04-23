@@ -36,8 +36,8 @@ router.put("/api/photo/:id/favorite", async (req, res) => {
     const { id } = req.params;
     const { curTags } = req.body;
 
-    console.log(curTags);
-    console.log("hello");
+    // console.log(curTags);
+    // console.log("hello");
   
     try {
       // Find the photo by ID

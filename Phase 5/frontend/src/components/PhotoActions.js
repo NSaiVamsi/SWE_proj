@@ -105,25 +105,13 @@ const PhotoActionsContainer = ({photo}) => {
 
   const [selected, setSelected] = useState([]);
 
-  const handleEditTags = () => {
-
-    console.log(photo[0].tags);
-
-      <div>
-      <h3>Edit Tags</h3>
-
-      <TagsInput
-      value={selected}
-      onChange={setSelected}
-      name="fruits"
-      placeHolder="enter tags"
-      />
-      <em>press enter to add new tag</em>
-      </div>
-  };
-
 
   const handleDownload = () => {
+    // Logic for downloading the photo
+    console.log('Downloading photo');
+  };
+
+  const handleShare = () => {
     // Logic for downloading the photo
     console.log('Downloading photo');
   };
@@ -143,11 +131,13 @@ const PhotoActionsContainer = ({photo}) => {
           {photo[0].favoritesFlag ? 'Unfavorite' : 'Favorite'}
         </button>
         <button onClick={handleMakeHidden}>Make Hidden</button>
-        <button onClick={handleDelete}>Delete</button>
         <button onClick={handleMakeGlobal}>Make Global</button>
+        <button onClick={handleDelete}>Delete</button>
         <EditTags tags = {photo[0].tags} photoid={photo[0]._id}/>
         {/* <button onClick={handleEditTags}>Edit Tags</button> */}
         <button onClick={handleDownload}>Download</button>
+        <button onClick={handleShare}>Share</button>
+        {/* missing adding to a album , move albumn , and info of a image , sharing a image */}
       </div>
     </div>
   );
