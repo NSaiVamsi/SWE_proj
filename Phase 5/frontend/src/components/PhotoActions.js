@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router";
+import EditTags from './EditTagsButton';
+import { TagsInput } from "react-tag-input-component";
+
 
 const PhotoActionsContainer = ({photo}) => {
 
@@ -95,10 +98,30 @@ const PhotoActionsContainer = ({photo}) => {
     console.log('Making photo global');
   };
 
+  // const handleEditTags = () => {
+  //   // Logic for editing photo tags
+  //   console.log('Editing photo tags');
+  // };
+
+  const [selected, setSelected] = useState([]);
+
   const handleEditTags = () => {
-    // Logic for editing photo tags
-    console.log('Editing photo tags');
+
+    console.log(photo[0].tags);
+
+      <div>
+      <h3>Edit Tags</h3>
+
+      <TagsInput
+      value={selected}
+      onChange={setSelected}
+      name="fruits"
+      placeHolder="enter tags"
+      />
+      <em>press enter to add new tag</em>
+      </div>
   };
+
 
   const handleDownload = () => {
     // Logic for downloading the photo
@@ -122,7 +145,8 @@ const PhotoActionsContainer = ({photo}) => {
         <button onClick={handleMakeHidden}>Make Hidden</button>
         <button onClick={handleDelete}>Delete</button>
         <button onClick={handleMakeGlobal}>Make Global</button>
-        <button onClick={handleEditTags}>Edit Tags</button>
+        <EditTags tags = {photo[0].tags} photoid={photo[0]._id}/>
+        {/* <button onClick={handleEditTags}>Edit Tags</button> */}
         <button onClick={handleDownload}>Download</button>
       </div>
     </div>
