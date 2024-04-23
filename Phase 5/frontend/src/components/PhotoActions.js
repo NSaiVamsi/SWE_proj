@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
 const PhotoActionsContainer = ({photo}) => {
+
+  const [boolFav, setBoolFav] = useState(-1);
+
+
 //   const [imageData, setImageData] = useState(null);
 
 //   const handleImageUpload = (event) => {
@@ -21,6 +25,7 @@ const PhotoActionsContainer = ({photo}) => {
 
   const handleChangeFavorite = () => {
     // Logic for changing favorite status
+    setBoolFav(-1*boolFav);
     console.log('Changing favorite status');
   };
 
@@ -56,7 +61,7 @@ const PhotoActionsContainer = ({photo}) => {
 
       <div className="photo-actions">
         <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleChangeFavorite}>Change Favorite</button>
+        <button onClick={handleChangeFavorite}>Change Favorite {boolFav}</button>
         <button onClick={handleMakeHidden}>Make Hidden</button>
         <button onClick={handleMakeGlobal}>Make Global</button>
         <button onClick={handleEditTags}>Edit Tags</button>

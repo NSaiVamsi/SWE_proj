@@ -10,7 +10,6 @@ const router = Router();
 
 
 router.get("/api/photo-details/:id", async (req, res) => {
-console.log("Entered")
     try {
         const { id } = req.params;
         // console.log(id);
