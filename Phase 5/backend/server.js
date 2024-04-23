@@ -8,6 +8,7 @@ const ViewBinRoute = require("./routes/ViewBinRoute");
 const ViewFavRoute = require("./routes/ViewFavRoute");
 const ViewLockRoute = require("./routes/ViewLockRoute");
 const photoRoute = require("./routes/photoRoute");
+const PhotoActionsRoute = require("./routes/PhotoActionsRoute");
 
 const app = express();
 app.use(cors());
@@ -30,6 +31,7 @@ app.use(ViewBinRoute);
 app.use(ViewFavRoute);
 app.use(ViewLockRoute);
 app.use(photoRoute);
+app.use(PhotoActionsRoute);
 
 
 app.get("/",(req,res)=>{

@@ -24,6 +24,7 @@ router.get("/api/photo-details/:id", async (req, res) => {
           type: photo.type,
           data: photo.photo, // Assuming 'photo.photo' contains the base64 string
           // Include the binFlag attribute in the response if you want to use it on the frontend
+          favoritesFlag: photo.favoritesFlag,
           binFlag: photo.binFlag,
         }));
         // console.log(photosData)
