@@ -41,30 +41,26 @@ const PhotoActionsBinContainer = ({photo}) => {
   
   };
 
+  const [isDeleted, setIsDeleted] = useState(false);
+
   const handleDelete = () => {
     // Logic for deleting the photo
     console.log('Deleting photo');
+    const photoId = photo[0]._id;
 
-        // Logic for changing favorite status
-        console.log('Changing favorite status');
+    // Make an API call to delete the photo from the database
+    axios
+      .delete(`http://localhost:5001/api/photo/${photoId}/remove`)
+      .then((res) => {
+        console.log('Photo deleted successfully');
+        setIsDeleted(true); // Update state to indicate photo deletion
+        navigate(-1);
+      })
+      .catch((err) => {
+        console.error('Error deleting photo:', err);
+      });
 
-        const photoId = photo[0]._id; // Assuming you have a unique identifier for the photo
-        const isCurrentlyBin = !photo[0].binFlag ; // Get the current favorite status
-    
-      // Make an API call to update the favorite status
-      axios
-        .put(`http://localhost:5001/api/photo/${photoId}/bin/`, { isBin : isCurrentlyBin })
-        .then((res) => {
-          console.log(' status updated successfully');
-          setIsBin(!isCurrentlyBin); // Update the local state with the new favorite status
-          navigate('/home/photon/bin'); // Equivalent to goBack()
-        })
-        .catch((err) => {
-          console.error('Error updating Bin status:', err);
-        });
-  
   };
-
 
   return (
     <div className="photo-actions-bin-container">

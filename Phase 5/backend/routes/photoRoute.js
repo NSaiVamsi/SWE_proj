@@ -26,7 +26,8 @@ router.get("/api/photo-details/:id", async (req, res) => {
           // Include the binFlag attribute in the response if you want to use it on the frontend
           favoritesFlag: photo.favoritesFlag,
           binFlag: photo.binFlag,
-          hiddenFolderFlag: photo.hiddenFolderFlag
+          hiddenFolderFlag: photo.hiddenFolderFlag,
+          tags: photo.tags
         }));
         // console.log(photosData)
         res.send(photosData);
@@ -53,6 +54,7 @@ router.get("/api/photo-details/:id", async (req, res) => {
             favoritesFlag: photo.favoritesFlag,
             hiddenFolderFlag: photo.hiddenFolderFlag,
             binFlag: photo.binFlag,
+            tags: photo.tags
           }));
           // console.log(photosDataBin)
           res.send(photosDataBin);
@@ -79,6 +81,7 @@ router.get("/api/photo-details/:id", async (req, res) => {
               favoritesFlag: photo.favoritesFlag,
               hiddenFolderFlag: photo.hiddenFolderFlag,
               binFlag: photo.binFlag,
+              tags: photo.tags
             }));
             // console.log(photosDataBin)
             res.send(photosDataBin);

@@ -24,7 +24,8 @@ router.get("/api/get", async (req, res) => {
       data: photo.photo,
       binFlag: photo.binFlag,
       hiddenFolderFlag: photo.hiddenFolderFlag,
-      favoritesFlag: photo.favoritesFlag
+      favoritesFlag: photo.favoritesFlag,
+      tags: photo.tags
        // Assuming 'photo.photo' contains the base64 string
     }));
 

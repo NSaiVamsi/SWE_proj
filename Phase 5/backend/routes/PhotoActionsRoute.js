@@ -77,5 +77,24 @@ router.put("/api/photo/:id/favorite", async (req, res) => {
       res.status(500).send("An error occurred while updating Bin status");
     }
   });
+
+// DELETE route to delete a photo permanently
+router.delete("/api/photo/:id/remove", async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+
+  try {
+    const deletedPhoto = await UploadModel.findByIdAndDelete(id);
+
+    if (!deletedPhoto) {
+      return res.status(404).send('Photo not found');
+    }
+
+    res.status(200).send('Photo deleted successfully');
+  } catch (error) {
+    console.error('Error deleting photo:', error);
+    res.status(500).send('An error occurred while deleting the photo');
+  }
+});
   
   module.exports = router;
