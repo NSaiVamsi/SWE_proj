@@ -11,7 +11,7 @@ const router = Router();
 router.get("/api/get", async (req, res) => {
   try {
     const allPhotos = await UploadModel.find({ binFlag: 0, hiddenFolderFlag: 0 }).sort({ createdAt: "descending" });
-
+    
     // Convert documents to a format that is more convenient for the frontend
     const photosData = allPhotos.map(photo => ({
       _id: photo._id,
@@ -47,7 +47,7 @@ router.get("/api/get", async (req, res) => {
 router.post("/api/save", async(req,res)=>{
   const {photo, ownerUserId,resolution,size,type} = req.body
   try {
-
+    console.log(type);
     UploadModel.create({ 
       ownerUserId,
       dateTime: new Date(),
