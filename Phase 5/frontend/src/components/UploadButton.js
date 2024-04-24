@@ -18,6 +18,12 @@ const Button = ({ setUpdateUI }) => {
   const [base64,setBase64] = useState("");
 
   const convertIntoBase64 = (e) => {
+    const file = e.target.files[0];
+    console.log("File Binarystring:",file) ;
+    if (file.size > 10000000) { // 10MB limit, for example
+      alert('File size exceeds maximum limit of 10MB.');
+      return;
+    }
     var reader = new FileReader();
 
     reader.onload = () => {
@@ -35,8 +41,9 @@ const Button = ({ setUpdateUI }) => {
         setResolution(resolution);
         // console.log('Base64 Data:', reader.result);
         setBase64(reader.result);
-        console.log(`inside fn64: ${base64}`)
+        // console.log(`inside fn64: ${base64}`)
         setSize(size);
+        
       };
     };
 
@@ -60,6 +67,7 @@ const Button = ({ setUpdateUI }) => {
     
     // console.log(e.target.files[0])
     // console.log(formData)
+
     axios
       .post("http://localhost:5001/api/save", {
           photo: base64,
@@ -69,7 +77,7 @@ const Button = ({ setUpdateUI }) => {
           type: type,
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setUpdateUI(res.data._id);
       })
       .catch((err) => console.log(err));
