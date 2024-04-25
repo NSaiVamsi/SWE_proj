@@ -9,7 +9,7 @@ const ViewFavRoute = require("./routes/ViewFavRoute");
 const ViewLockRoute = require("./routes/ViewLockRoute");
 const photoRoute = require("./routes/photoRoute");
 const PhotoActionsRoute = require("./routes/PhotoActionsRoute");
-
+const AlbumRoute = require("./routes/AlbumCreation")
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -32,7 +32,7 @@ app.use(ViewFavRoute);
 app.use(ViewLockRoute);
 app.use(photoRoute);
 app.use(PhotoActionsRoute);
-
+app.use(AlbumRoute)
 
 app.get("/",(req,res)=>{
     res.send("Welcome to Backend");

@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const fs = require("fs");
+app.use(bodyParser.json())
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI("AIzaSyBg2hgX3mnoh4vd0JqCTDnIqkFndNHc2hU");
