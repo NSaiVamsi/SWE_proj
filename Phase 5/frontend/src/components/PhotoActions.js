@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router";
+import EditTags from './EditTagsButton';
+import { TagsInput } from "react-tag-input-component";
+
 
 const PhotoActionsContainer = ({photo}) => {
 
@@ -95,12 +98,20 @@ const PhotoActionsContainer = ({photo}) => {
     console.log('Making photo global');
   };
 
-  const handleEditTags = () => {
-    // Logic for editing photo tags
-    console.log('Editing photo tags');
-  };
+  // const handleEditTags = () => {
+  //   // Logic for editing photo tags
+  //   console.log('Editing photo tags');
+  // };
+
+  const [selected, setSelected] = useState([]);
+
 
   const handleDownload = () => {
+    // Logic for downloading the photo
+    console.log('Downloading photo');
+  };
+
+  const handleShare = () => {
     // Logic for downloading the photo
     console.log('Downloading photo');
   };
@@ -120,10 +131,13 @@ const PhotoActionsContainer = ({photo}) => {
           {photo[0].favoritesFlag ? 'Unfavorite' : 'Favorite'}
         </button>
         <button onClick={handleMakeHidden}>Make Hidden</button>
-        <button onClick={handleDelete}>Delete</button>
         <button onClick={handleMakeGlobal}>Make Global</button>
-        <button onClick={handleEditTags}>Edit Tags</button>
+        <button onClick={handleDelete}>Delete</button>
+        <EditTags tags = {photo[0].tags} photoid={photo[0]._id}/>
+        {/* <button onClick={handleEditTags}>Edit Tags</button> */}
         <button onClick={handleDownload}>Download</button>
+        <button onClick={handleShare}>Share</button>
+        {/* missing adding to a album , move albumn , and info of a image , sharing a image */}
       </div>
     </div>
   );
