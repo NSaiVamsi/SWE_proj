@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import M from "materialize-css";
 import Cookies from "js-cookie";
+import './css_to_these/album.css';
 
 const AlbumManager = () => {
   const [newAlbumName, setNewAlbumName] = useState('');
@@ -44,31 +45,47 @@ const AlbumManager = () => {
 
   return (
     <div>
-      <div className="center">ALBUMS PAGE</div>
-      <div className="input-field">
-        <input
-          type="text"
-          id="album_name"
-          value={newAlbumName}
-          onChange={(e) => setNewAlbumName(e.target.value)}
-          placeholder="Enter new album name"
-        />
-        <button className="waves-effect waves-light btn" onClick={handleCreateAlbum}>
-          Create Album
-        </button>
+      <div className="center">ALBUMS PAGE
+      <div className="sidebar">
+            <ul>
+                <li><a href="/home/photon">All Photos</a></li>
+                <li><a href="/home/photon/share">Shared</a></li>
+                <li><a href="/home/photon/save">Saved</a></li>
+                <li><a href="/home/photon/fav">Favorites</a></li>
+                <li><a href="/home/photon/album"  className='current'>Albums</a></li>
+                <li><a href="/home/photon/lock">Locked</a></li>
+                <li><a href="/home/photon/bin">Bin</a></li>
+            </ul>
+            </div>
       </div>
-      <div>
-        <h5>Existing Albums:</h5>
-        {albums.length > 0 ? (
-          albums.map((album, index) => (
-            <button key={index} className="waves-effect waves-light btn">
-              {album.vaultName}
+      
+      <div class="content">
+        <div class="input-field">
+            <input
+                type="text"
+                id="album_name"
+                value={newAlbumName}
+                onChange={(e) => setNewAlbumName(e.target.value)}
+                placeholder="Enter new album name"
+            />
+            <button class="waves-effect waves-light btn" onClick={handleCreateAlbum}>
+                Create Album
             </button>
-          ))
-        ) : (
-          <p>No albums found.</p>
-        )}
-      </div>
+        </div>
+
+        <div>
+            <h5>Existing Albums:</h5>
+            {albums.length > 0 ? (
+                albums.map((album, index) => (
+                    <button key={index} class="waves-effect waves-light btn">
+                        {album.vaultName}
+                    </button>
+                ))
+            ) : (
+                <p>No albums found.</p>
+            )}
+        </div>
+    </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Grid.css'
 
 const Grid = ({ photos, flag }) => {
   let gridContent;
@@ -8,10 +9,10 @@ const Grid = ({ photos, flag }) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/photo-details/${photo._id}`} key={photo._id}>
-            <img src={`${photo.data}`} alt="Uploaded" />
-          </Link>
-        ))}
+  <Link to={`/home/photon/photo-details/${photo._id}`} key={photo._id} className="grid-item">
+    <img src={photo.data} alt="Uploaded" />
+  </Link>
+))}
       </div>
     );
   } 
@@ -19,10 +20,10 @@ const Grid = ({ photos, flag }) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/bin/photo-details/${photo._id}`} key={photo._id}>
-            <img src={`${photo.data}`} alt="Uploaded" />
-          </Link>
-        ))}
+  <Link to={`/home/photon/photo-details/${photo._id}`} key={photo._id} className="grid-item">
+    <img src={photo.data} alt="Uploaded" />
+  </Link>
+))}
       </div>
     );
   }
@@ -30,10 +31,10 @@ const Grid = ({ photos, flag }) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/lock/photo-details/${photo._id}`} key={photo._id}>
-            <img src={`${photo.data}`} alt="Uploaded" />
-          </Link>
-        ))}
+  <Link to={`/home/photon/photo-details/${photo._id}`} key={photo._id} className="grid-item">
+    <img src={photo.data} alt="Uploaded" />
+  </Link>
+))}
       </div>
     );
   }
@@ -42,4 +43,3 @@ const Grid = ({ photos, flag }) => {
 };
 
 export default Grid;
-

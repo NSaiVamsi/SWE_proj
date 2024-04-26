@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
+import './css_to_these/homePhotoN.css';
 import axios from "axios";
 import React from 'react';
 import PhotoDetails from './PhotoView.js' ;
@@ -46,10 +47,10 @@ const HomePhotoN = () => {
 
             <div className="sidebar">
             <ul>
-                <li><a href="/home/photon">All Photos</a></li>
+                <li><a href="/home/photon" className = "current">All Photos</a></li>
                 <li><a href="/home/photon/share">Shared</a></li>
                 <li><a href="/home/photon/save">Saved</a></li>
-                <li><a href="/home/photon/fav">Favs</a></li>
+                <li><a href="/home/photon/fav">Favorites</a></li>
                 <li><a href="/home/photon/album">Albums</a></li>
                 <li><a href="/home/photon/lock">Locked</a></li>
                 <li><a href="/home/photon/bin">Bin</a></li>
